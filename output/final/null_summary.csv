@@ -1,0 +1,61 @@
+kind,scenario,n,effect,method,rejection_rate,R,mc_error,B,alpha,target_R,completed
+null,N1_uniform_uniform,100,0,HSIC fixed,0.05,500,0.009746794345,499,0.05,500,true
+null,N1_uniform_uniform,100,0,HSIC median,0.056,500,0.01028241217,499,0.05,500,true
+null,N1_uniform_uniform,100,0,HSIC standardized multi-scale,0.062,500,0.01078480412,499,0.05,500,true
+null,N1_uniform_uniform,100,0,first-order trigonometric moment diagnostic,0.054,500,0.01010781876,499,0.05,500,true
+null,N1_uniform_uniform,100,0,naive Euclidean-angle HSIC anti-example,0.058,500,0.01045332483,499,0.05,500,true
+null,N1_uniform_uniform,200,0,HSIC fixed,0.046,500,0.009368457717,499,0.05,500,true
+null,N1_uniform_uniform,200,0,HSIC median,0.046,500,0.009368457717,499,0.05,500,true
+null,N1_uniform_uniform,200,0,HSIC standardized multi-scale,0.054,500,0.01010781876,499,0.05,500,true
+null,N1_uniform_uniform,200,0,first-order trigonometric moment diagnostic,0.05,500,0.009746794345,499,0.05,500,true
+null,N1_uniform_uniform,200,0,naive Euclidean-angle HSIC anti-example,0.032,500,0.007870959281,499,0.05,500,true
+null,N1_uniform_uniform,50,0,HSIC fixed,0.06,500,0.01062073444,499,0.05,500,true
+null,N1_uniform_uniform,50,0,HSIC median,0.052,500,0.009929350432,499,0.05,500,true
+null,N1_uniform_uniform,50,0,HSIC standardized multi-scale,0.042,500,0.008970618708,499,0.05,500,true
+null,N1_uniform_uniform,50,0,first-order trigonometric moment diagnostic,0.058,500,0.01045332483,499,0.05,500,true
+null,N1_uniform_uniform,50,0,naive Euclidean-angle HSIC anti-example,0.046,500,0.009368457717,499,0.05,500,true
+null,N2_vonmises_vonmises,100,0,HSIC fixed,0.05,500,0.009746794345,499,0.05,500,true
+null,N2_vonmises_vonmises,100,0,HSIC median,0.048,500,0.009559916318,499,0.05,500,true
+null,N2_vonmises_vonmises,100,0,HSIC standardized multi-scale,0.052,500,0.009929350432,499,0.05,500,true
+null,N2_vonmises_vonmises,100,0,first-order trigonometric moment diagnostic,0.034,500,0.008104813385,499,0.05,500,true
+null,N2_vonmises_vonmises,100,0,naive Euclidean-angle HSIC anti-example,0.056,500,0.01028241217,499,0.05,500,true
+null,N2_vonmises_vonmises,200,0,HSIC fixed,0.028,500,0.007377804551,499,0.05,500,true
+null,N2_vonmises_vonmises,200,0,HSIC median,0.034,500,0.008104813385,499,0.05,500,true
+null,N2_vonmises_vonmises,200,0,HSIC standardized multi-scale,0.03,500,0.007628892449,499,0.05,500,true
+null,N2_vonmises_vonmises,200,0,first-order trigonometric moment diagnostic,0.03,500,0.007628892449,499,0.05,500,true
+null,N2_vonmises_vonmises,200,0,naive Euclidean-angle HSIC anti-example,0.036,500,0.00833114638,499,0.05,500,true
+null,N2_vonmises_vonmises,50,0,HSIC fixed,0.052,500,0.009929350432,499,0.05,500,true
+null,N2_vonmises_vonmises,50,0,HSIC median,0.058,500,0.01045332483,499,0.05,500,true
+null,N2_vonmises_vonmises,50,0,HSIC standardized multi-scale,0.06,500,0.01062073444,499,0.05,500,true
+null,N2_vonmises_vonmises,50,0,first-order trigonometric moment diagnostic,0.042,500,0.008970618708,499,0.05,500,true
+null,N2_vonmises_vonmises,50,0,naive Euclidean-angle HSIC anti-example,0.052,500,0.009929350432,499,0.05,500,true
+null,N3_uniform_vonmises,100,0,HSIC fixed,0.036,500,0.00833114638,499,0.05,500,true
+null,N3_uniform_vonmises,100,0,HSIC median,0.042,500,0.008970618708,499,0.05,500,true
+null,N3_uniform_vonmises,100,0,HSIC standardized multi-scale,0.052,500,0.009929350432,499,0.05,500,true
+null,N3_uniform_vonmises,100,0,first-order trigonometric moment diagnostic,0.034,500,0.008104813385,499,0.05,500,true
+null,N3_uniform_vonmises,100,0,naive Euclidean-angle HSIC anti-example,0.032,500,0.007870959281,499,0.05,500,true
+null,N3_uniform_vonmises,200,0,HSIC fixed,0.046,500,0.009368457717,499,0.05,500,true
+null,N3_uniform_vonmises,200,0,HSIC median,0.052,500,0.009929350432,499,0.05,500,true
+null,N3_uniform_vonmises,200,0,HSIC standardized multi-scale,0.042,500,0.008970618708,499,0.05,500,true
+null,N3_uniform_vonmises,200,0,first-order trigonometric moment diagnostic,0.062,500,0.01078480412,499,0.05,500,true
+null,N3_uniform_vonmises,200,0,naive Euclidean-angle HSIC anti-example,0.052,500,0.009929350432,499,0.05,500,true
+null,N3_uniform_vonmises,50,0,HSIC fixed,0.052,500,0.009929350432,499,0.05,500,true
+null,N3_uniform_vonmises,50,0,HSIC median,0.044,500,0.009172131704,499,0.05,500,true
+null,N3_uniform_vonmises,50,0,HSIC standardized multi-scale,0.046,500,0.009368457717,499,0.05,500,true
+null,N3_uniform_vonmises,50,0,first-order trigonometric moment diagnostic,0.052,500,0.009929350432,499,0.05,500,true
+null,N3_uniform_vonmises,50,0,naive Euclidean-angle HSIC anti-example,0.046,500,0.009368457717,499,0.05,500,true
+null,N4_mixture_mixture,100,0,HSIC fixed,0.058,500,0.01045332483,499,0.05,500,true
+null,N4_mixture_mixture,100,0,HSIC median,0.04,500,0.00876356092,499,0.05,500,true
+null,N4_mixture_mixture,100,0,HSIC standardized multi-scale,0.032,500,0.007870959281,499,0.05,500,true
+null,N4_mixture_mixture,100,0,first-order trigonometric moment diagnostic,0.058,500,0.01045332483,499,0.05,500,true
+null,N4_mixture_mixture,100,0,naive Euclidean-angle HSIC anti-example,0.04,500,0.00876356092,499,0.05,500,true
+null,N4_mixture_mixture,200,0,HSIC fixed,0.054,500,0.01010781876,499,0.05,500,true
+null,N4_mixture_mixture,200,0,HSIC median,0.05,500,0.009746794345,499,0.05,500,true
+null,N4_mixture_mixture,200,0,HSIC standardized multi-scale,0.072,500,0.0115599308,499,0.05,500,true
+null,N4_mixture_mixture,200,0,first-order trigonometric moment diagnostic,0.066,500,0.01110351296,499,0.05,500,true
+null,N4_mixture_mixture,200,0,naive Euclidean-angle HSIC anti-example,0.046,500,0.009368457717,499,0.05,500,true
+null,N4_mixture_mixture,50,0,HSIC fixed,0.056,500,0.01028241217,499,0.05,500,true
+null,N4_mixture_mixture,50,0,HSIC median,0.028,500,0.007377804551,499,0.05,500,true
+null,N4_mixture_mixture,50,0,HSIC standardized multi-scale,0.048,500,0.009559916318,499,0.05,500,true
+null,N4_mixture_mixture,50,0,first-order trigonometric moment diagnostic,0.042,500,0.008970618708,499,0.05,500,true
+null,N4_mixture_mixture,50,0,naive Euclidean-angle HSIC anti-example,0.054,500,0.01010781876,499,0.05,500,true

@@ -1,0 +1,5 @@
+"Scenario","n","Method","Reject.","MC SE","R","B","alpha"
+"T0_independent",100,"HSIC torus product","0.07","0.02",250,299,0.05
+"T0_independent",200,"HSIC torus product","0.06","0.01",250,299,0.05
+"T1_coordinate_coupled",100,"HSIC torus product","1.00","0.00",250,299,0.05
+"T1_coordinate_coupled",200,"HSIC torus product","1.00","0.00",250,299,0.05

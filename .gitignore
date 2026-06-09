@@ -1,0 +1,14 @@
+.DS_Store
+*.aux
+*.log
+*.blg
+*.bbl
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.out
+main.pdf
+main 2.*
+output/tmp*/
+output/final/reduced_sensitivity_chunks/
+output/final/pdf_checks/

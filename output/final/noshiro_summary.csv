@@ -1,0 +1,8 @@
+"method","statistic","p.value","n","B","min_p","grid","role"
+"HSIC fixed",1.44064687101285,0.001,678,999,0.001,NA,"primary"
+"HSIC median",0.0294413620924808,0.001,678,999,0.001,NA,"primary"
+"HSIC standardized multi-scale",113.294370365983,0.001,678,999,0.001,"0.5,2,8,16","primary"
+"Jammalamadaka-Sarma circular correlation diagnostic",0.00767903894452272,0.023,678,999,0.001,NA,"diagnostic comparator"
+"Fisher-Lee circular correlation diagnostic",0.0407037840556247,0.001,678,999,0.001,NA,"diagnostic comparator"
+"first-order trigonometric moment diagnostic",0.5192172193407,0.001,678,999,0.001,NA,"diagnostic comparator"
+"naive Euclidean-angle HSIC anti-example",0.0254682604253389,0.001,678,999,0.001,NA,"anti-example"
