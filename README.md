@@ -55,4 +55,6 @@ The Noshiro data used in the manuscript are stored in `data/noshiro.csv`. Proven
 
 ## Archive status
 
-This GitHub repository is the working public replication repository. Citation metadata are provided in `CITATION.cff`. A permanent Zenodo archive DOI should be minted before external journal submission and then added to the manuscript and README.
+This GitHub repository is the working public replication repository. Citation metadata are provided in `CITATION.cff`. The Zenodo concept DOI for the archived replication materials is:
+
+https://doi.org/10.5281/zenodo.20617102

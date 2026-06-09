@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use these replication materials, please cite them using the metadata below."
 type: software
 title: "Geometry-aware HSIC independence testing for circular, toroidal and circular-linear data"
-version: "0.1.1-csda-presubmission"
+version: "0.1.2-csda-presubmission"
 date-released: "2026-06-09"
 authors:
   - given-names: Aurelien
