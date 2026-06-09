@@ -28,9 +28,37 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
 The current manuscript figures and tables are generated from the CSV files in `output/final/`.
 
-## Main simulation runner
+## Reproducibility
 
-The main runner is resumable and writes outputs under `output/final/`.
+Compile the manuscript:
+
+```bash
+latexmk -C main.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+```
+
+Run lightweight implementation checks:
+
+```bash
+Rscript R/07_smoke_tests.R
+```
+
+Regenerate manuscript figures and tables from existing CSV files:
+
+```bash
+Rscript R/10_make_figures_tables.R
+```
+
+Reproduce the Noshiro analysis from `data/noshiro.csv`:
+
+```bash
+Rscript R/11_noshiro_final.R
+```
+
+The full simulation runner is computationally expensive. It is resumable and
+writes outputs under `output/final/`.
+
+## Main simulation runner
 
 ```bash
 Rscript R/09_final_simulation_runner.R \
@@ -53,8 +81,16 @@ Rscript R/14_benchmark_runtime.R
 
 The Noshiro data used in the manuscript are stored in `data/noshiro.csv`. Provenance notes are in `data/noshiro_source.txt`.
 
+## License
+
+The R code and supporting software scripts are licensed under the MIT License in `LICENSE`. Data and generated-output notes are in `LICENSE-DATA.md`.
+
 ## Archive status
 
 This GitHub repository is the working public replication repository. Citation metadata are provided in `CITATION.cff`. The Zenodo concept DOI for the archived replication materials is:
 
 https://doi.org/10.5281/zenodo.20617102
+
+The version-specific DOI for the `v0.1.3-csda-presubmission` release is:
+
+https://doi.org/10.5281/zenodo.20617128

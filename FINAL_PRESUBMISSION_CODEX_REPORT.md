@@ -1,123 +1,182 @@
-# Final Pre-submission Codex Report
+# Final pre-submission Codex report
 
 Date: 2026-06-09
 
+Repository:
+
+`geometry-aware-hsic-directional-public`
+
+Branch used for this pass:
+
+`final-submission-readiness`
+
+Starting commit:
+
+`cc13a5868d28a667aca98092074b11e834ad1816`
+
 ## Scope
 
-This pass was performed only inside:
+This was a final submission-readiness pass for the CSDA pre-submission
+manuscript and public replication repository. No major simulations were run.
+No rejection rates, p-values, benchmark values or table entries were changed.
+No final CSV output was deleted.
 
-`paper_compact_hsic_directional_pub_v3/`
+## Files changed
 
-No new simulations were run. Figures and tables were regenerated from existing CSV files after a clean LaTeX pass exposed stale derived files.
-
-## Files Changed
-
-- `main.tex`
-- `TODO_BEFORE_SUBMISSION.md`
-- `FIGURE_TABLE_AUDIT.md`
-- `SUBMISSION_CHECKLIST.md`
-- `SIMULATION_AUDIT.md`
-- `output/final/data/*.csv`
-- `output/final/figures/fig1_alternatives.pdf`
-- `output/final/figures/fig2_type1.pdf`
-- `output/final/figures/fig3_power.pdf`
-- `output/final/figures/fig4_strategy_comparison.pdf`
-- `output/final/figures/fig5_kappa_sensitivity.pdf`
-- `output/final/figures/fig6_circular_linear.pdf`
-- `output/final/figures/fig7_noshiro_torus.pdf`
-- `output/final/tables/*.csv`
-- `output/final/tables/*.tex`
-- `geometry_aware_hsic_directional_CSDA_presubmission.pdf`
-- `FINAL_PRESUBMISSION_CODEX_REPORT.md`
+- `CITATION.cff`
 - `README.md`
-- `.gitignore`
+- `ZENODO_NEXT_STEPS.md`
+- `main.tex`
+- `geometry_aware_hsic_directional_CSDA_presubmission.pdf`
+- `LICENSE`
+- `LICENSE-DATA.md`
+- `FINAL_FIGURE_TABLE_TRACE.md`
+- `FINAL_PRESUBMISSION_CODEX_REPORT.md`
+- `SUBMISSION_FILES_CHECKLIST.md`
+- `output/smoke_test_log.txt`
 
-No R source file required editing in this pass. The R source files were inspected to verify simulation settings and test settings.
+## Manuscript source verification
 
-## Changes Made
+The checked `main.tex` corresponds to the 18-page pre-submission manuscript.
+It contains:
 
-1. Fixed the torus proposition reference in Section 8.
-   - The torus-torus demonstration now refers to Proposition 1 and the toroidal-block HSIC consequence, not Proposition 2.
+- Section 8, `Simulation results`
+- the torus-torus demonstration, labelled as Table 4 by LaTeX
+- the runtime benchmark, labelled as Table 5 by LaTeX
+- an unnumbered `Code and data availability` section
+- the GitHub repository URL
+- the Zenodo concept DOI and the version-specific Zenodo DOI
 
-2. Verified the positive-definiteness proof.
-   - `main.tex` already used the Hermitian form `c_i\overline{c_j}`.
-   - The right-hand side remains a squared modulus.
-   - A rendered PDF page was converted to `output/final/pdf_checks/lemma_page-03.png`, confirming that the conjugation bar displays in the PDF.
+The compiled PDF has 18 pages.
 
-3. Clarified the `N4_mixture_mixture` null scenario.
-   - The manuscript now states equal mixture weights.
-   - The first angle has centers `(0, pi)` and concentrations `(5, 5)`.
-   - The second angle has centers `(pi/2, 3*pi/2)` and concentrations `(4, 4)`.
-   - These values were read from `R/02_simulate_circular_circular.R`.
+## Positive-definiteness proof
 
-4. Clarified alternative `A5_local_dependence`.
-   - The manuscript now states that when `Theta > pi`, `Phi` is uniform on `[0, 2*pi)`.
-   - This was read from `R/02_simulate_circular_circular.R`.
+Lemma 1 was inspected. The quadratic form uses the Hermitian convention
+`c_i\overline{c_j}` and the right-hand side is a squared modulus. No
+mathematical change was made.
 
-5. Harmonized comparator wording.
-   - Final simulation CSV files do not contain Jammalamadaka-Sarma or Fisher-Lee results.
-   - The manuscript now lists them as implemented Noshiro diagnostics, not as main simulation methods.
-   - The statement that the trigonometric diagnostic is not the full García-Portugués et al. 2024 test was retained.
+## Inconsistency checks
 
-6. Documented circular-linear HSIC settings.
-   - Figure 6 is now described as using single-scale circular-linear HSIC.
-   - The von Mises concentration uses the median circular-distance rule.
-   - The Gaussian bandwidth uses the median Euclidean-distance rule.
-   - The Euclidean variables are not additionally standardized in the simulation code.
+The manuscript was searched for:
 
-7. Documented the torus-torus demonstration DGP.
-   - `X` and `Y` are both in `T^2`.
-   - `T0` uses independent uniform torus blocks.
-   - `T1` couples the first coordinate through `Y_1 = X_1 + epsilon mod 2*pi`, with `epsilon ~ VM(0,4)`, and leaves the second coordinate independent uniform.
-   - The product-kernel concentration vector is `(2,2)` for both blocks.
-   - Settings are `n = 100, 200`, `R = 250`, `B = 299`, and `alpha = 0.05`.
+- `publication-draft`
+- `final target`
+- `available run`
+- `preliminary`
+- `placeholder`
+- `not final`
+- `smoke test`
+- `Proposition 2`
+- `independent otherwise`
+- overstated novelty phrases
+- em dash characters
 
-8. Improved the runtime benchmark description.
-   - The manuscript now states that the benchmark summary records Darwin 25.5.0 on arm64 with 14 logical cores available.
-   - The timing loop is sequential for each test call.
+No problematic occurrences remain in manuscript prose. The phrase
+`uniformly optimal` appears only in negative wording stating that no uniformly
+optimal power claim is made.
 
-9. Added an unnumbered Code and data availability section.
-   - The statement now includes the verified public GitHub repository URL.
-   - No archive DOI was invented.
+The torus-torus demonstration refers to Proposition 1 and the toroidal-block
+consequence. Jammalamadaka-Sarma and Fisher-Lee are described as Noshiro
+diagnostics, not main simulation comparators.
 
-10. Regenerated figures and tables from existing CSV files.
-   - No simulation values were changed.
-   - Derived figure and table files were regenerated with `R/10_make_figures_tables.R`.
+## License status
 
-## Result Values Touched in Text
+A code license was added:
 
-The following values were added or clarified in the manuscript, each read from source code or existing CSV files:
+- `LICENSE`: MIT License, 2026, Aurelien Nicosia
 
-- `N4` mixture weights: equal weights, from `rvm_mix()` default in `R/02_simulate_circular_circular.R`.
-- `N4` first-angle centers and concentrations: `(0, pi)`, `(5, 5)`, from `R/02_simulate_circular_circular.R`.
-- `N4` second-angle centers and concentrations: `(pi/2, 3*pi/2)`, `(4, 4)`, from `R/02_simulate_circular_circular.R`.
-- `A5` independent-region distribution: `Phi ~ U(0, 2*pi)` when `Theta > pi`, from `R/02_simulate_circular_circular.R`.
-- circular-linear bandwidth and concentration rules: median rules, from `R/01_kernels_hsic.R`.
-- circular-linear standardization: no additional standardization, verified from `R/03_simulate_circular_linear.R` and `R/01_kernels_hsic.R`.
-- torus demonstration noise concentration: `VM(0,4)`, from `R/13_run_torus_demo.R`.
-- torus product kernel concentration vector: `(2,2)`, from `R/13_run_torus_demo.R`.
-- torus demonstration settings: `n = 100, 200`, `R = 250`, `B = 299`, `alpha = 0.05`, from `R/13_run_torus_demo.R` and `output/final/torus_demo_summary.csv`.
-- benchmark environment: Darwin 25.5.0 arm64 and 14 logical cores, from `output/final/runtime_benchmark_summary.csv`.
+Data and generated-output notes were added:
 
-No rejection rates, p-values, or simulation conclusions were changed except to clarify their source and scope.
+- `LICENSE-DATA.md`
 
-## Checks Performed
+The Noshiro data file is documented as a local CSV export of
+`ridgetorus::earthquakes`. The CRAN source package `ridgetorus` version 1.0.3
+declares GPL-3 in its `DESCRIPTION`. The repository does not assert an
+additional license for third-party source data beyond the source package and
+original-data terms.
 
-- Clean compile with `latexmk -C main.tex` followed by TeX Live `latexmk`.
-- Final PDF copied to `geometry_aware_hsic_directional_CSDA_presubmission.pdf`.
-- No unresolved citations.
-- No unresolved references.
-- All cited figures exist.
-- All input tables exist.
-- Figure labels resolve in numerical order 1 to 7.
-- Table labels resolve in numerical order 1 to 6.
-- No forbidden manuscript wording found: `publication-draft`, `final target`, `available run`, `preliminary`, `placeholder`, `not final`, `smoke test`.
-- No em dash character appears in `main.tex`.
-- BibTeX uses 27 entries, and all 27 entries are cited.
+## DOI status
 
-## Manual Verification Remaining
+Verified DOI information:
 
-- Add a permanent archival DOI for the replication materials before external submission.
-- Record the CPU model and R version for the runtime benchmark before external submission.
-- Decide whether to run a larger `n = 500`, `R = 1000`, `B = 999` simulation design.
-- Decide whether a verified implementation of the full García-Portugués et al. 2024 trigonometric-moment test is needed.
+- Zenodo concept DOI: `10.5281/zenodo.20617102`
+- version-specific DOI for `v0.1.3-csda-presubmission`: `10.5281/zenodo.20617128`
+- Zenodo record: `https://zenodo.org/records/20617128`
+
+The concept DOI and version-specific DOI were added to the README and manuscript
+Code and data availability section. The version DOI was added to
+`CITATION.cff`.
+
+## Reproducibility checks
+
+The README now contains commands for:
+
+- compiling the manuscript
+- running lightweight smoke tests
+- regenerating figures and tables from existing CSV files
+- reproducing the Noshiro analysis
+- rerunning the main simulation runner, with a warning that it is expensive
+
+Executed in this pass:
+
+```bash
+Rscript R/07_smoke_tests.R
+latexmk -C main.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+```
+
+The smoke tests passed and wrote `output/smoke_test_log.txt`.
+
+## LaTeX and citation status
+
+Clean LaTeX compilation completed successfully. Final checks found:
+
+- no undefined citations
+- no undefined references
+- no missing figure or table files
+- no BibTeX warnings
+- no LaTeX warnings after the final run
+- 18-page PDF output
+
+The string `missing$` appears only in the BibTeX function-call count in
+`main.blg`; it is not a missing-file warning.
+
+## Figure and table traceability
+
+`FINAL_FIGURE_TABLE_TRACE.md` was created. It records, for each manuscript
+figure and table:
+
+- the output file used by LaTeX
+- the source CSV
+- the generating script
+- whether the file is present
+
+LaTeX label checks show:
+
+- Figures resolve in order 1 to 7.
+- Tables resolve in order 1 to 6.
+- `tab:torus-demo` is Table 4.
+- `tab:runtime` is Table 5.
+- `tab:noshiro` is Table 6.
+
+## Remaining manual actions before CSDA submission
+
+- Decide whether to add ORCID metadata to Zenodo and `CITATION.cff`.
+- Confirm that the latest archived Zenodo release is the intended submission
+  release.
+- If the license and traceability files added in this pass should be included
+  in the exact archived submission snapshot, create a follow-up GitHub release
+  and let Zenodo archive it. The current verified version DOI remains
+  `10.5281/zenodo.20617128` for `v0.1.3-csda-presubmission`.
+- Decide whether the current medium simulation design is sufficient for CSDA,
+  or whether larger runs should be treated as a later robustness extension.
+- Decide whether the current comparator set is sufficient, or whether a
+  verified full implementation of Garcia-Portugues et al. 2024 is needed.
+- Record CPU model and R version for the runtime benchmark if desired by the
+  journal or reviewers.
+
+## Final verdict
+
+The repository and manuscript are ready for CSDA pre-submission review with
+explicit remaining risks limited to simulation scale, comparator breadth and
+optional metadata polish.
