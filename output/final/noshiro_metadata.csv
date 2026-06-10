@@ -1,0 +1,2 @@
+"data_file","source_file","n","variable_1","variable_2","units","theta_min","theta_max","phi_min","phi_max","B","min_p","grid"
+"/Users/aureliennicosia/Documents/test indep circulaire/paper_compact_hsic_directional_pub/data/noshiro.csv","/Users/aureliennicosia/Documents/test indep circulaire/paper_compact_hsic_directional_pub/data/noshiro_source.txt",678,"theta1","theta2","radians",0.00174532925199473,6.27620399017161,0.0230728278919943,6.27693538855657,999,0.001,"0.5,2,8,16"

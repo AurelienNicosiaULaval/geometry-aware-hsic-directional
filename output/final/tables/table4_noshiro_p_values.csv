@@ -1,0 +1,8 @@
+"Method","Statistic","p-value","n","B"
+"HSIC fixed","1.441","0.001",678,999
+"HSIC median","0.029","0.001",678,999
+"HSIC multi-scale","113.294","0.001",678,999
+"Jammalamadaka-Sarma circular correlation diagnostic","0.008","0.023",678,999
+"Fisher-Lee circular correlation diagnostic","0.041","0.001",678,999
+"Trig. moment diagnostic","0.519","0.001",678,999
+"Naive Euclidean HSIC","0.025","0.001",678,999

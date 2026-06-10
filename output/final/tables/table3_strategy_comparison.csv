@@ -1,0 +1,4 @@
+"Strategy","Mean reject.","Mean MC SE","R","B","alpha"
+"HSIC fixed","0.74","0.01","500","499","0.05"
+"HSIC median","0.63","0.01","500","499","0.05"
+"HSIC multi-scale","0.78","0.01","500","499","0.05"

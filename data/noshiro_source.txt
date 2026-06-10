@@ -1,0 +1,4 @@
+ridgetorus::earthquakes downloaded from CRAN source package: https://cloud.r-project.org/src/contrib/ridgetorus_1.0.3.tar.gz
+Dataset documented as 678 observations with theta1 and theta2 in radians on [0, 2*pi).
+Primary documentation: https://rdrr.io/cran/ridgetorus/man/earthquakes.html
+References listed in package documentation include Hamada and O'Rourke (1992), Jones et al. (2015), and Rivest (1997).

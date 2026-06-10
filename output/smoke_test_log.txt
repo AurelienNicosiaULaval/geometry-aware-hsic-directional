@@ -1,0 +1,27 @@
+Smoke test log
+Date: 2026-06-09 19:15:34 EDT
+
+[PASS] von Mises kernel symmetry
+[PASS] von Mises kernel diagonal equals exp(kappa)
+[PASS] Gaussian kernel symmetry
+[PASS] Gaussian kernel diagonal equals one
+[PASS] HSIC independent toy value is nonnegative up to tolerance
+[PASS] HSIC dependent toy value is nonnegative up to tolerance
+[PASS] HSIC identical/dependent toy value exceeds independent toy value
+[PASS] single-scale p-value is in [0, 1]
+[PASS] single-scale stores permutation statistics
+[PASS] multi-scale p-value is in [0, 1]
+[PASS] multi-scale returns full grid information
+[PASS] multi-scale retains at least one grid point
+[PASS] multi-scale returns permutation maxima
+[PASS] multi-scale returns observed plus permutation maxima
+[PASS] multi-scale returns grid permutation matrix
+[PASS] multi-scale returns pooled means
+[PASS] multi-scale returns pooled standard deviations
+[PASS] multi-scale returns undefined p-value when all pooled sd values are near zero
+[PASS] multi-scale drops all near-zero sd grid points
+[PASS] torus von Mises kernel symmetry
+[PASS] torus von Mises diagonal equals exp(sum kappa)
+[PASS] circular-linear p-value is in [0, 1]
+
+All smoke tests passed.

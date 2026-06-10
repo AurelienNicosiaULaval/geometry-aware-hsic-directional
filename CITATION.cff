@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use these replication materials, please cite them using the metadata below."
+type: software
+title: "Geometry-aware HSIC independence testing for circular, toroidal and circular-linear data"
+version: "1.0.1-csda-submission"
+doi: "10.5281/zenodo.20617102"
+date-released: "2026-06-10"
+authors:
+  - given-names: Aurelien
+    family-names: Nicosia
+    affiliation: "Universite Laval"
+abstract: "Replication materials for a manuscript on geometry-aware HSIC independence testing for circular, toroidal and circular-linear data. The repository contains LaTeX sources, R code, simulation outputs, figures, tables and the Noshiro data export used in the manuscript."
+repository-code: "https://github.com/AurelienNicosiaULaval/geometry-aware-hsic-directional"
+keywords:
+  - circular data
+  - directional statistics
+  - HSIC
+  - kernel independence testing
+  - reproducible research
+  - torus
+  - von Mises kernel

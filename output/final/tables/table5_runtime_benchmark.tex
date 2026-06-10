@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{Runtime benchmark for HSIC strategies. Times are elapsed seconds with B = 199 permutations.}
+\label{tab:runtime}
+\begin{tabular}{lllllll}
+\toprule
+Method & n & B & Median sec. & IQR sec. & Reps & Cores
+\\
+\midrule
+HSIC fixed &  50 & 199 & 0.007 & 0.003 & 20 & 14\\
+HSIC fixed & 100 & 199 & 0.027 & 0.005 & 20 & 14\\
+HSIC fixed & 200 & 199 & 0.102 & 0.020 & 20 & 14\\
+HSIC median &  50 & 199 & 0.006 & 0.001 & 20 & 14\\
+HSIC median & 100 & 199 & 0.027 & 0.007 & 20 & 14\\
+HSIC median & 200 & 199 & 0.095 & 0.018 & 20 & 14\\
+HSIC multi-scale &  50 & 199 & 0.306 & 0.041 & 20 & 14\\
+HSIC multi-scale & 100 & 199 & 1.292 & 0.249 & 20 & 14\\
+HSIC multi-scale & 200 & 199 & 4.335 & 0.855 & 20 & 14\\
+\bottomrule
+\end{tabular}
+\end{table}
