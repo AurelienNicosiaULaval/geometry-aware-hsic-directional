@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use these replication materials, please cite them using the metadata below."
 type: software
 title: "Geometry-aware HSIC independence testing for circular, toroidal and circular-linear data"
-version: "1.0.2-csda-submission"
+version: "1.0.3-csda-submission"
 doi: "10.5281/zenodo.20617102"
 date-released: "2026-06-10"
 authors:

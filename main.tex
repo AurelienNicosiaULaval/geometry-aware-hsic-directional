@@ -301,7 +301,10 @@ This procedure includes the scale search in the permutation calibration: the per
 
 The computational cost is driven by Gram matrices and permutations.  For one pair of kernels, forming \(K\) and \(L\) costs \(O(n^2)\) kernel evaluations and each permutation statistic costs \(O(n^2)\) if computed by centered matrix inner products.  Thus a single-scale test costs \(O(n^2B)\) after the Gram matrices are built.  With \(|G|=q\) concentrations for each circular variable, the multi-scale test builds \(q\) Gram matrices per marginal variable and evaluates \(q^2\) HSIC statistics for each observed and permuted pairing, giving \(O(qn^2+q^2Bn^2)\) arithmetic in the direct implementation.  In practice, one precomputes centered Gram matrices for all concentrations and permutes the centered \(L\) matrices, since \(H\) commutes with permutation matrices.  Parallelization over permutations or grid points is straightforward.
 
+
 \section{Simulation results}
+
+\subsection{Simulation design}
 
 The simulation study uses \(n\in\{50,100,200\}\), \(R=500\) Monte Carlo repetitions and \(B=499\) random permutations at nominal level \(\alpha=0.05\).  Larger runs are possible with the supplied scripts.  For an estimated rejection rate \(\widehat p\), Monte Carlo standard errors are computed as
 \[
@@ -330,9 +333,13 @@ with all angles taken modulo \(2\pi\).  Figure~\ref{fig:alternatives} illustrate
 \label{fig:alternatives}
 \end{figure}
 
+\FloatBarrier
+
 The circular-circular simulation methods are HSIC fixed with \(\kappa=2\) for both margins, HSIC median, standardized multi-scale HSIC on \(G=\{0.5,1,2,4,8,16,32\}\), a first-order trigonometric moment diagnostic motivated by \citet{garciaportugues2024trigonometric}, and naive Euclidean-angle HSIC as an anti-example.  The trigonometric diagnostic implemented here is not the full test of \citet{garciaportugues2024trigonometric}.  Jammalamadaka-Sarma and Fisher-Lee diagnostics \citep{jammalamadaka2001topics,fisherlee1983circular} are implemented and reported for the Noshiro example, but they are not included in the main simulation figures and tables.  Comparisons are interpreted scenario by scenario because the procedures target different aspects of dependence.
 
-Figure~\ref{fig:type1} and Table~\ref{tab:type1} summarize type-I error under the independent circular marginals.  Across all null scenarios and implemented methods, rejection rates range from \(0.028\) to \(0.072\), which is compatible with the nominal level at the reported Monte Carlo resolution.  Figure~\ref{fig:power} and Table~\ref{tab:selected-power} summarize circular-circular power across the simulated alternatives and effect sizes.  Shift, double-angle, local and symmetric nonlinear alternatives are detected at high rates by the HSIC methods.  The axial and multimodal alternatives are more sensitive to kernel scale.  At \(n=200\) and \(\rho=8\), the multi-scale procedure reaches rejection rate \(1.000\) for both axial and multimodal alternatives, while the median heuristic gives \(0.124\) and \(0.042\), respectively.  Figure~\ref{fig:strategy} and Table~\ref{tab:strategy} compare the kernel-parameter strategies.  Table~\ref{tab:strategy} is descriptive: the average rejection rate depends on the simulation design and should not be read as a uniform ranking.
+\subsection{Type-I error under independent circular marginals}
+
+Figure~\ref{fig:type1} displays the type-I error estimates under independent circular marginals, and Table~\ref{tab:type1} gives the corresponding numerical summary with Monte Carlo standard errors.  Across all null scenarios and implemented methods, rejection rates range from \(0.028\) to \(0.072\), which is compatible with the nominal level at the reported Monte Carlo resolution.
 
 \begin{figure}[!htbp]
 \centering
@@ -341,7 +348,15 @@ Figure~\ref{fig:type1} and Table~\ref{tab:type1} summarize type-I error under th
 \label{fig:type1}
 \end{figure}
 
+\FloatBarrier
+
 \input{output/final/tables/table1_type1_summary.tex}
+
+\FloatBarrier
+
+\subsection{Circular-circular power}
+
+Figure~\ref{fig:power} summarizes circular-circular rejection rates across the simulated alternatives and effect sizes.  Shift, double-angle, local and symmetric nonlinear alternatives are detected at high rates by the HSIC methods.  The axial and multimodal alternatives are more sensitive to kernel scale, which motivates the separate scale-sensitivity summary below.
 
 \begin{figure}[!htbp]
 \centering
@@ -350,7 +365,15 @@ Figure~\ref{fig:type1} and Table~\ref{tab:type1} summarize type-I error under th
 \label{fig:power}
 \end{figure}
 
+Table~\ref{tab:selected-power} reports selected rejection rates at \(n=200\) and \(\rho=8\), where the differences among kernel strategies are easiest to see.  For the axial and multimodal alternatives, the multi-scale procedure reaches rejection rate \(1.000\), while the median heuristic gives \(0.124\) and \(0.042\), respectively.  These contrasts are scenario-specific and should not be read as a uniform superiority statement.
+
 \input{output/final/tables/table2_selected_power.tex}
+
+\FloatBarrier
+
+\subsection{Kernel-parameter strategies and sensitivity}
+
+Figure~\ref{fig:strategy} compares the three HSIC tuning strategies across the circular-circular alternatives.  Table~\ref{tab:strategy} gives a compact descriptive average over the same design.  This average depends on the simulation grid and is included only as a summary of the present study.
 
 \begin{figure}[!htbp]
 \centering
@@ -359,7 +382,11 @@ Figure~\ref{fig:type1} and Table~\ref{tab:type1} summarize type-I error under th
 \label{fig:strategy}
 \end{figure}
 
+\FloatBarrier
+
 \input{output/final/tables/table3_strategy_comparison.tex}
+
+Figure~\ref{fig:kappa-sensitivity} gives the reduced fixed-kernel sensitivity study.  It isolates the effect of the von Mises concentration for the independent null, axial, multimodal and symmetric nonlinear scenarios at \(n=100\).  The pattern reinforces that local or multi-modal alternatives can require more localized kernels than those selected by a single median heuristic.
 
 \begin{figure}[!htbp]
 \centering
@@ -368,7 +395,13 @@ Figure~\ref{fig:type1} and Table~\ref{tab:type1} summarize type-I error under th
 \label{fig:kappa-sensitivity}
 \end{figure}
 
-For circular-linear simulations, \(\Theta\sim U(0,2\pi)\) and the Euclidean response is generated from four alternatives: \(X=1+\cos(\Theta-\pi/4)+\eta\), \(X=\cos(2\Theta)+\eta\), a four-dimensional trigonometric mean with coordinates \(\cos\Theta,\sin\Theta,\cos2\Theta,\sin2\Theta\), and a local mean shift on the arc \(\Theta\le\pi/2\).  The noise standard deviation is in \(\{0.3,0.5,0.7,1.0\}\).  The independent case uses a standard normal Euclidean response.  Figure~\ref{fig:cl-power} uses the single-scale circular-linear HSIC test with the median circular-distance rule for the von Mises concentration and the median Euclidean-distance rule for the Gaussian bandwidth; the Euclidean variables are used on their simulated scale without additional standardization.  The independent case remains close to nominal, with rejection rates between \(0.042\) and \(0.062\).  The first-harmonic and multivariate alternatives are detected strongly throughout this design, while the second-harmonic alternative weakens as linear noise increases.
+\FloatBarrier
+
+\subsection{Circular-linear simulations}
+
+For circular-linear simulations, \(\Theta\sim U(0,2\pi)\) and the Euclidean response is generated from four alternatives: \(X=1+\cos(\Theta-\pi/4)+\eta\), \(X=\cos(2\Theta)+\eta\), a four-dimensional trigonometric mean with coordinates \(\cos\Theta,\sin\Theta,\cos2\Theta,\sin2\Theta\), and a local mean shift on the arc \(\Theta\le\pi/2\).  The noise standard deviation is in \(\{0.3,0.5,0.7,1.0\}\).  The independent case uses a standard normal Euclidean response.
+
+Figure~\ref{fig:cl-power} uses the single-scale circular-linear HSIC test with the median circular-distance rule for the von Mises concentration and the median Euclidean-distance rule for the Gaussian bandwidth; the Euclidean variables are used on their simulated scale without additional standardization.  The independent case remains close to nominal, with rejection rates between \(0.042\) and \(0.062\).  The first-harmonic and multivariate alternatives are detected strongly throughout this design, while the second-harmonic alternative weakens as linear noise increases.
 
 \begin{figure}[!htbp]
 \centering
@@ -377,6 +410,10 @@ For circular-linear simulations, \(\Theta\sim U(0,2\pi)\) and the Euclidean resp
 \label{fig:cl-power}
 \end{figure}
 
+\FloatBarrier
+
+\subsection{Toroidal demonstration and runtime}
+
 Table~\ref{tab:torus-demo} gives a small torus-torus demonstration, included to check that the product-kernel implementation behaves as expected under the toroidal characteristic-kernel result in Proposition 1 and the subsequent toroidal-block HSIC consequence.  In this demonstration, \(X\in\mathbb T^2\) and \(Y\in\mathbb T^2\).  Under \(T0\), both toroidal variables have independent uniform coordinates.  Under \(T1\), the first coordinate of \(Y\) is \(X_1+\varepsilon\) modulo \(2\pi\), with \(\varepsilon\sim\mathrm{VM}(0,4)\), while the second coordinate of \(Y\) is independent uniform.  The torus product HSIC test uses concentration vector \((2,2)\) for both blocks, with \(n\in\{100,200\}\), \(R=250\), \(B=299\) and \(\alpha=0.05\).  This is not intended as an exhaustive toroidal power study.
 
 \input{output/final/tables/table6_torus_demo.tex}
@@ -384,7 +421,6 @@ Table~\ref{tab:torus-demo} gives a small torus-torus demonstration, included to 
 Table~\ref{tab:runtime} reports elapsed-time benchmarks for the three HSIC strategies.  These timings are machine dependent, but they illustrate the expected increase from single-scale to multi-scale testing.  The benchmark summary records Darwin 25.5.0 on arm64 with 14 logical cores available; the timing loop itself is sequential for each test call.
 
 \input{output/final/tables/table5_runtime_benchmark.tex}
-
 \FloatBarrier
 
 \section{Real-data example: Noshiro directions}
@@ -401,6 +437,8 @@ Table~\ref{tab:noshiro} reports the Noshiro p-values using \(B=999\) permutation
 \caption{Binned torus plot for the Noshiro directional data. The first angle is direction of steepest descent and the second angle is direction of lateral movement, both in radians.}
 \label{fig:noshiro-torus}
 \end{figure}
+
+\FloatBarrier
 
 \input{output/final/tables/table4_noshiro_p_values.tex}
 
